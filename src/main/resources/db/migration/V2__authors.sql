@@ -1,4 +1,4 @@
 create table authors(
-  id integer not null primary key,
-  name varchar
+  id bigserial not null primary key,
+  "name" varchar
 );
