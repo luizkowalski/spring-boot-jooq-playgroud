@@ -9,6 +9,7 @@ import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;
+import org.simpleflatmapper.jooq.SfmRecordMapperProvider;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,6 +32,9 @@ public class DataSourceConfiguration extends HikariConfig {
 
   @Bean
   public DSLContext getContext() throws SQLException {
-    return DSL.using(dataSource(), SQLDialect.POSTGRES, new Settings().withRenderFormatted(true));
+    DSLContext context = DSL
+        .using(dataSource(), SQLDialect.POSTGRES, new Settings().withRenderFormatted(true));
+    context.configuration().set(new SfmRecordMapperProvider());
+    return context;
   }
 }
