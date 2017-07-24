@@ -129,8 +129,8 @@
              from looking for our migration scripts
              only on the classpath -->
         <configuration>
-          <url>${spring.datasource.jdbcUrl}</url>
-          <user>${spring.datasource.username}</user>
+          <url>${spring.ds.jdbcUrl}</url>
+          <user>${spring.ds.username}</user>
           <locations>
             <location>filesystem:src/main/resources/db/migration</location>
           </locations>
@@ -158,9 +158,9 @@
              generator for more details -->
         <configuration>
           <jdbc>
-            <url>${spring.datasource.jdbcUrl}</url>
-            <user>${spring.datasource.username}</user>
-            <password>${spring.datasource.password}</password>
+            <url>${spring.ds.jdbcUrl}</url>
+            <user>${spring.ds.username}</user>
+            <password>${spring.ds.password}</password>
           </jdbc>
           <generator>
             <database>
